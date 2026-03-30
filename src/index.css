@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: #020617;
+  color: #f8fafc;
+}
+
+/* Scrollbar gizle (scroll çalışır) */
+.scrollbar-hidden {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge legacy */
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Editor içinde 1.1 / 2.1 gibi hiyerarşik numaralandırma */
+.rich-editor ol {
+  list-style: none;
+  counter-reset: item;
+  padding-left: 1.25rem;
+  margin: 0.25rem 0;
+}
+.rich-editor ol > li {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 0.5rem;
+  counter-increment: item;
+  margin: 0.125rem 0;
+  align-items: start;
+}
+.rich-editor ol > li::before {
+  content: counters(item, ".") ". ";
+  color: #e2e8f0;
+  white-space: nowrap;
+  text-align: right;
+}
+.rich-editor ol > li > .li-content {
+  grid-column: 2;
+  min-width: 0;
+}
+.rich-editor ol > li > ol,
+.rich-editor ol > li > ul {
+  grid-column: 2;
+}
+.rich-editor ol > li > ol {
+  counter-reset: item;
+  margin-top: 0.25rem;
+}
+
+/* Bullets için varsayılan noktayı koru */
+.rich-editor ul {
+  list-style: disc;
+  list-style-position: outside;
+  padding-left: 1.25rem;
+  margin: 0.25rem 0;
+}
+.rich-editor ul > li {
+  margin: 0.125rem 0;
+}
+
+/* Nested list'ler parent'a göre içeri girsin (2'nin altı gibi görünsün) */
+.rich-editor li > ul,
+.rich-editor li > ol {
+  margin-left: 1.5rem;
+}
