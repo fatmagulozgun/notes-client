@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
-import { fetchMe, refreshAccessToken } from '../../features/auth/authSlice';
+import { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
+import { fetchMe, refreshAccessToken } from "../../features/auth/authSlice";
 
 function ProtectedRoute({ children }) {
   const { user, initialized, accessToken } = useSelector((state) => state.auth);
@@ -27,7 +27,7 @@ function ProtectedRoute({ children }) {
   }, [accessToken]);
 
   if (!initialized) {
-    return <div className="p-6 text-slate-300">Yükleniyor...</div>;
+    return null;
   }
 
   if (!user) {
