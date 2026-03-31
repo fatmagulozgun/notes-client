@@ -268,7 +268,7 @@ function NotesPage() {
               >
                 <span className="flex items-center gap-1.5">
                   <LayoutGrid size={16} />
-                  Grid
+                  Kartlar
                 </span>
               </button>
               <button
@@ -492,7 +492,7 @@ function NotesPage() {
           </div>
 
           <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-4">
-            <h3 className="text-lg font-semibold text-white">Export</h3>
+            <h3 className="text-lg font-semibold text-white">Dışa Aktar</h3>
             <p className="mt-2 text-sm text-slate-400">
               Filtrelenmiş notları JSON veya Markdown olarak indir.
             </p>

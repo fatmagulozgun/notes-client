@@ -9,7 +9,7 @@ const navItems = [
   { path: '/notes/new', label: 'Yeni Not', icon: FilePlus },
   { path: '/notes', label: 'Notlarim', icon: NotebookText },
   { path: '/calendar', label: 'Takvim', icon: CalendarDays },
-  { path: '/productivity', label: 'Productivity Hub', icon: Sparkles },
+  { path: '/productivity', label: 'Üretkenlik Merkezi', icon: Sparkles },
   { path: '/trash', label: 'Cop Kutusu', icon: Trash2 },
 ];
 
@@ -47,7 +47,7 @@ function Sidebar() {
       }`}
     >
       <h1 className={`mb-8 text-xl font-semibold ${isDark ? 'text-slate-100' : 'text-slate-900'}`}>
-        Notes Client Pro
+        Notlarım
       </h1>
 
       <nav className="flex-1 space-y-2">

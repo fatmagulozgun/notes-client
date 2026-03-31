@@ -73,7 +73,7 @@ function DashboardPage() {
       <section className="rounded-3xl border border-slate-800 bg-[radial-gradient(circle_at_top_left,_rgba(14,165,233,0.22),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(99,102,241,0.22),_transparent_30%),linear-gradient(135deg,_rgba(15,23,42,1),_rgba(2,6,23,1))] p-6">
         <div className="flex flex-wrap items-start justify-between gap-5">
           <div>
-            <p className="text-sm uppercase tracking-[0.28em] text-sky-300">Dashboard</p>
+            <p className="text-sm uppercase tracking-[0.28em] text-sky-300">Gösterge Paneli</p>
             <h1 className="mt-3 text-3xl font-semibold text-white">Merhaba {user?.name || 'kullanici'}</h1>
             <p className="mt-3 max-w-2xl text-sm text-slate-300">
               Not yonetimi, aktivite takibi ve odak aliskanliklarini tek panelde izleyebilirsin.
@@ -83,7 +83,7 @@ function DashboardPage() {
             className="inline-flex items-center gap-2 rounded-2xl bg-white/10 px-4 py-3 text-sm font-medium text-white transition hover:bg-white/15"
             onClick={() => navigate('/productivity')}
           >
-            Productivity Hub
+            Üretkenlik Merkezi
             <ArrowUpRight size={16} />
           </button>
         </div>
@@ -172,7 +172,7 @@ function DashboardPage() {
                 className="rounded-2xl bg-slate-950/60 px-4 py-3 text-left text-sm text-slate-200 transition hover:bg-slate-950"
                 onClick={() => navigate('/productivity')}
               >
-                Focus timer ve sablonlari ac
+                Odak sayacı ve şablonları aç
               </button>
             </div>
           </div>

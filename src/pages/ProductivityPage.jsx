@@ -108,7 +108,7 @@ function ProductivityPage() {
         <div className="rounded-3xl border border-slate-800 bg-[radial-gradient(circle_at_top_left,_rgba(99,102,241,0.28),_transparent_38%),linear-gradient(135deg,_rgba(15,23,42,0.95),_rgba(2,6,23,0.98))] p-6">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
-              <p className="text-sm uppercase tracking-[0.28em] text-indigo-300">Productivity Hub</p>
+              <p className="text-sm uppercase tracking-[0.28em] text-indigo-300">Üretkenlik Merkezi</p>
               <h2 className="mt-3 text-3xl font-semibold text-white">Odak, hedef ve hizli not akisi tek ekranda</h2>
               <p className="mt-3 max-w-2xl text-sm text-slate-300">
                 Bu alan local state ile calisir; timer, hedef takibi ve sablonlardan tek tikla not uretimi sunar.
@@ -149,12 +149,12 @@ function ProductivityPage() {
         <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
           <div className="flex items-center justify-between gap-3">
             <div>
-              <p className="text-sm text-slate-400">Focus timer</p>
+              <p className="text-sm text-slate-400">Odak sayacı</p>
               <h3 className="text-xl font-semibold text-white">{presetLabels[focusPreset]}</h3>
             </div>
             <div className="text-right">
               <p className="font-mono text-5xl font-semibold text-white">{minutes}:{seconds}</p>
-              <p className="mt-2 text-xs uppercase tracking-[0.22em] text-slate-500">Pomodoro style</p>
+              <p className="mt-2 text-xs uppercase tracking-[0.22em] text-slate-500">Pomodoro</p>
             </div>
           </div>
 
@@ -258,7 +258,7 @@ function ProductivityPage() {
             <ListTodo size={18} className="text-indigo-300" />
             <div>
               <p className="text-sm text-slate-400">Gunluk hedefler</p>
-              <h3 className="text-xl font-semibold text-white">Mini execution board</h3>
+              <h3 className="text-xl font-semibold text-white">Günlük görev panosu</h3>
             </div>
           </div>
 
