@@ -16,6 +16,16 @@ function MainLayout() {
     dispatch(fetchNotes());
   }, [dispatch, accessToken]);
 
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    const root = document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+  }, [theme]);
+
   const showHeader = location.pathname === '/';
   const isDark = theme === 'dark';
 

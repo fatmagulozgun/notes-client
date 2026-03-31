@@ -8,6 +8,7 @@ const LoginPage = lazy(() => import("./pages/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage"));
 const NotesPage = lazy(() => import("./pages/NotesPage"));
 const CalendarPage = lazy(() => import("./pages/CalendarPage"));
+const ProductivityPage = lazy(() => import("./pages/ProductivityPage"));
 const TrashPage = lazy(() => import("./pages/TrashPage"));
 const NoteEditorPage = lazy(() => import("./pages/NoteEditorPage"));
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="notes/new" element={<NoteEditorPage />} />
             <Route path="notes/:id" element={<NoteEditorPage />} />
             <Route path="calendar" element={<CalendarPage />} />
+            <Route path="productivity" element={<ProductivityPage />} />
             <Route path="trash" element={<TrashPage />} />
           </Route>
           <Route path="*" element={<Navigate to="/" replace />} />

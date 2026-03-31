@@ -1,4 +1,4 @@
-import { CalendarDays, ChevronDown, FilePlus, Home, NotebookText, Trash2, User } from 'lucide-react';
+import { CalendarDays, ChevronDown, FilePlus, Home, NotebookText, Sparkles, Trash2, User } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
@@ -7,9 +7,10 @@ import { logoutUser } from '../../features/auth/authSlice';
 const navItems = [
   { path: '/', label: 'Ana Sayfa', icon: Home },
   { path: '/notes/new', label: 'Yeni Not', icon: FilePlus },
-  { path: '/notes', label: 'Notlarım', icon: NotebookText },
+  { path: '/notes', label: 'Notlarim', icon: NotebookText },
   { path: '/calendar', label: 'Takvim', icon: CalendarDays },
-  { path: '/trash', label: 'Çöp Kutusu', icon: Trash2 },
+  { path: '/productivity', label: 'Productivity Hub', icon: Sparkles },
+  { path: '/trash', label: 'Cop Kutusu', icon: Trash2 },
 ];
 
 function Sidebar() {
@@ -22,10 +23,11 @@ function Sidebar() {
   const dropdownRef = useRef(null);
 
   useEffect(() => {
-    const onDoc = (e) => {
+    const onDoc = (event) => {
       if (!dropdownRef.current) return;
-      if (!dropdownRef.current.contains(e.target)) setOpen(false);
+      if (!dropdownRef.current.contains(event.target)) setOpen(false);
     };
+
     document.addEventListener('mousedown', onDoc);
     return () => document.removeEventListener('mousedown', onDoc);
   }, []);
@@ -45,10 +47,12 @@ function Sidebar() {
       }`}
     >
       <h1 className={`mb-8 text-xl font-semibold ${isDark ? 'text-slate-100' : 'text-slate-900'}`}>
-        Not Defteri SaaS
+        Notes Client Pro
       </h1>
+
       <nav className="flex-1 space-y-2">
-        {navItems.map(({ path, label, icon: Icon }) => {
+        {navItems.map((item) => {
+          const { path, label } = item;
           const active = isItemActive(path);
           return (
             <NavLink
@@ -64,7 +68,7 @@ function Sidebar() {
                     : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
               }`}
             >
-              <Icon size={18} />
+              <item.icon size={18} />
               {label}
             </NavLink>
           );
@@ -78,19 +82,19 @@ function Sidebar() {
               ? 'border-slate-800 bg-slate-900/50 text-slate-100 hover:bg-slate-900'
               : 'border-slate-200 bg-slate-50 text-slate-900 hover:bg-slate-100'
           }`}
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => setOpen((value) => !value)}
         >
           <span className="flex items-center gap-2">
             <span
               className={`flex h-8 w-8 items-center justify-center rounded-full ${
                 isDark ? 'bg-slate-800 text-slate-200' : 'bg-slate-200 text-slate-800'
               }`}
-              title={user?.name || 'Kullanıcı'}
+              title={user?.name || 'Kullanici'}
             >
               {user?.avatarUrl ? (
                 <img
                   src={user.avatarUrl}
-                  alt={user?.name ? `${user.name} avatar` : 'Kullanıcı avatar'}
+                  alt={user?.name ? `${user.name} avatar` : 'Kullanici avatar'}
                   className="h-8 w-8 rounded-full object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -98,7 +102,7 @@ function Sidebar() {
                 <User size={16} />
               )}
             </span>
-            <span className="truncate text-sm font-medium">{user?.name || 'Hesabım'}</span>
+            <span className="truncate text-sm font-medium">{user?.name || 'Hesabim'}</span>
           </span>
           <ChevronDown size={18} className={open ? 'rotate-180 transition' : 'transition'} />
         </button>
@@ -118,7 +122,7 @@ function Sidebar() {
                 dispatch(logoutUser());
               }}
             >
-              Çıkış Yap
+              Cikis Yap
             </button>
           </div>
         ) : null}

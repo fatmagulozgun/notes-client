@@ -1,12 +1,18 @@
-function SearchBar({ value, onChange }) {
+import { forwardRef } from "react";
+
+const SearchBar = forwardRef(function SearchBar(
+  { value, onChange, placeholder = "Başlık veya içerikte ara...", className = "" },
+  ref,
+) {
   return (
     <input
-      className="w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm outline-none transition focus:border-indigo-400"
-      placeholder="Başlık veya içerikte ara..."
+      ref={ref}
+      className={`w-full rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-sm outline-none placeholder:text-slate-500 focus:border-indigo-400 ${className}`}
+      placeholder={placeholder}
       value={value}
       onChange={(event) => onChange(event.target.value)}
     />
   );
-}
+});
 
 export default SearchBar;

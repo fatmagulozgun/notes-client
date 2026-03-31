@@ -15,13 +15,7 @@ const colorHex = {
 
 function Editor({ note }) {
   const dispatch = useDispatch();
-  // `note` async olarak gelebileceği için `draft` başlangıçta undefined olabilir.
-  // Bu yüzden null-safe ilerliyoruz.
   const [draft, setDraft] = useState(note ?? {});
-
-  useEffect(() => {
-    setDraft(note ?? {});
-  }, [note]);
 
   const payload = useMemo(
     () => ({
@@ -43,7 +37,7 @@ function Editor({ note }) {
   }, [dispatch, note?._id, payload]);
 
   if (!note) {
-    return <div className="rounded-xl border border-slate-800 p-6">Bir not seçin</div>;
+    return <div className="rounded-xl border border-slate-800 p-6">Bir not secin</div>;
   }
 
   return (
@@ -52,7 +46,7 @@ function Editor({ note }) {
         value={draft?.title || ''}
         onChange={(event) => setDraft((prev) => ({ ...prev, title: event.target.value }))}
         className="w-full bg-transparent text-2xl font-semibold outline-none"
-        placeholder="Not başlığı"
+        placeholder="Not basligi"
       />
       <textarea
         value={draft?.content || ''}
@@ -70,12 +64,9 @@ function Editor({ note }) {
           />
         ))}
       </div>
-      <TagSelector
-        tags={draft.tags}
-        onChange={(tags) => setDraft((prev) => ({ ...prev, tags }))}
-      />
+      <TagSelector tags={draft.tags} onChange={(tags) => setDraft((prev) => ({ ...prev, tags }))} />
       <p className="text-xs text-slate-400">
-        Son düzenleme: {new Date(note.lastEditedAt || note.updatedAt).toLocaleString()}
+        Son duzenleme: {new Date(note.lastEditedAt || note.updatedAt).toLocaleString()}
       </p>
     </div>
   );

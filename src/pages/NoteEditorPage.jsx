@@ -403,11 +403,9 @@ function NoteEditorPage() {
     restoreSelection();
 
     // Daha stabil CSS formatlama için
-    // eslint-disable-next-line no-restricted-globals
     document.execCommand('styleWithCSS', false, true);
 
     // contenteditable içinde seçim varsa execCommand uygulanır.
-    // eslint-disable-next-line no-restricted-globals
     document.execCommand(cmd, false, value);
 
     // Kullanıcı aksiyonundan sonra güncel HTML'i çekiyoruz.
@@ -419,7 +417,6 @@ function NoteEditorPage() {
   const palette = useMemo(() => colors, []);
 
   useEffect(() => {
-    // eslint-disable-next-line no-restricted-globals
     document.execCommand('styleWithCSS', false, true);
   }, []);
 
@@ -447,7 +444,7 @@ function NoteEditorPage() {
           // "Not yüklendi" toast'ını bilinçli olarak göstermiyoruz.
           // Kullanıcı Kaydet'e bastığında tek bildirim görsün.
           skipLoadToastRef.current = false;
-        } catch (e) {
+        } catch {
           toast.error('Not yüklenemedi');
           navigate('/notes');
         } finally {
@@ -616,7 +613,7 @@ function NoteEditorPage() {
       ).unwrap();
       toast.success('Not kaydedildi', { id: 'note-save' });
       navigate('/notes', { replace: true });
-    } catch (e) {
+    } catch {
       toast.error('Kaydetme başarısız', { id: 'note-save' });
     } finally {
       setSaving(false);

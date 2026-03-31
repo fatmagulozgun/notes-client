@@ -12,7 +12,14 @@ export const createNote = createAsyncThunk('notes/create', async (payload) => {
 });
 
 export const duplicateNote = createAsyncThunk('notes/duplicate', async (note) => {
-  const { _id, createdAt, updatedAt, lastEditedAt, deletedAt, user, isDeleted, ...copyable } = note;
+  const copyable = { ...note };
+  delete copyable._id;
+  delete copyable.createdAt;
+  delete copyable.updatedAt;
+  delete copyable.lastEditedAt;
+  delete copyable.deletedAt;
+  delete copyable.user;
+  delete copyable.isDeleted;
   const payload = {
     ...copyable,
     title: note.title ? `${note.title} (Kopya)` : 'Basliksiz (Kopya)',

@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { toggleTheme } from '../../features/ui/uiSlice';
 
 function Header() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const { theme } = useSelector((state) => state.ui);
   const isDark = theme === 'dark';
@@ -17,10 +17,23 @@ function Header() {
       }`}
     >
       <div>
-        <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Tekrar hoş geldin</p>
+        <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Tekrar hos geldin</p>
         <p className={isDark ? 'text-slate-100' : 'text-slate-900'}>{user?.name}</p>
       </div>
+
       <div className="flex items-center gap-3">
+        <button
+          className={`rounded-lg p-2 transition ${
+            isDark
+              ? 'bg-slate-800 text-slate-200 hover:bg-slate-700'
+              : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+          }`}
+          title={isDark ? 'Açık tema' : 'Koyu tema'}
+          onClick={() => dispatch(toggleTheme())}
+        >
+          {isDark ? <Sun size={18} /> : <Moon size={18} />}
+        </button>
+
         <button
           className={`rounded-lg px-3 py-2 text-sm font-medium transition ${
             isDark
@@ -46,7 +59,6 @@ function Header() {
         >
           <Bell size={18} />
         </button>
-
       </div>
     </header>
   );
