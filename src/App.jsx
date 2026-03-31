@@ -1,20 +1,20 @@
-import { lazy, Suspense } from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import MainLayout from './components/layout/MainLayout';
-import ProtectedRoute from './components/routing/ProtectedRoute';
+import { lazy, Suspense } from "react";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import MainLayout from "./components/layout/MainLayout";
+import ProtectedRoute from "./components/routing/ProtectedRoute";
 
-const DashboardPage = lazy(() => import('./pages/DashboardPage'));
-const LoginPage = lazy(() => import('./pages/LoginPage'));
-const RegisterPage = lazy(() => import('./pages/RegisterPage'));
-const NotesPage = lazy(() => import('./pages/NotesPage'));
-const CalendarPage = lazy(() => import('./pages/CalendarPage'));
-const TrashPage = lazy(() => import('./pages/TrashPage'));
-const NoteEditorPage = lazy(() => import('./pages/NoteEditorPage'));
+const DashboardPage = lazy(() => import("./pages/DashboardPage"));
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const RegisterPage = lazy(() => import("./pages/RegisterPage"));
+const NotesPage = lazy(() => import("./pages/NotesPage"));
+const CalendarPage = lazy(() => import("./pages/CalendarPage"));
+const TrashPage = lazy(() => import("./pages/TrashPage"));
+const NoteEditorPage = lazy(() => import("./pages/NoteEditorPage"));
 
 function App() {
   return (
     <BrowserRouter>
-      <Suspense fallback={<div className="p-6 text-slate-300">Sayfa yükleniyor...</div>}>
+      <Suspense fallback={null}>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
